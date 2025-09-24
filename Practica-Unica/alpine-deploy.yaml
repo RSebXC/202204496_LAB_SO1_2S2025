@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpine-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpine-test
+  template:
+    metadata:
+      labels:
+        app: alpine-test
+    spec:
+      containers:
+      - name: alpine
+        image: 192.168.49.2:32000/alpine:1.0
+        command: ["sleep", "3600"]

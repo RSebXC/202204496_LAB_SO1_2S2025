@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zot-nodeport
+spec:
+  selector:
+    app: zot
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 32000   # Puerto externo del nodo
+  type: NodePort

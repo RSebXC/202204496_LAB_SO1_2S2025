@@ -1,0 +1,13 @@
+# zot-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zot-pod
+  labels:
+    app: zot
+spec:
+  containers:
+    - name: zot
+      image: ghcr.io/project-zot/zot:latest
+      ports:
+        - containerPort: 5000

@@ -27,9 +27,9 @@ El sistema se opera principalmente a través del daemon en Go, que se ejecuta en
     - Logs del cronjob: `cat /tmp/container_cron.log` (muestra creación de contenedores).
     - Logs del kernel: `dmesg | tail` (muestra carga/descarga de módulos).
 
-**[screen: Insertar captura de pantalla de la terminal mostrando el inicio del daemon con logs como "✅ Grafana iniciado" y un ciclo de análisis completo]**
+![image.png](imagesMU/image.png)
 
-**[screen: Insertar captura de pantalla de la terminal mostrando el shutdown con "✅ Limpieza completada"]**
+![image.png](imagesMU/image%201.png)
 
 ### Ejemplos de uso práctico
 
@@ -47,9 +47,9 @@ El sistema se opera principalmente a través del daemon en Go, que se ejecuta en
     - Mientras el daemon corre, ejecuta `cat /proc/sysinfo_so1_202204496` manualmente para ver JSON con procesos del sistema (incluyendo estado).
     - Usa el dashboard de Grafana para ver "Total RAM: 15.0GB" y "RAM Usada: 6.1GB".
 
-**[screen: Insertar captura de pantalla de un ejemplo de uso en terminal mostrando creación manual de un contenedor y su eliminación automática en el log del daemon]**
+![image.png](imagesMU/image%202.png)
 
-**[screen: Insertar captura de pantalla de Grafana mostrando el dashboard con un ejemplo de "Top 5 Contenedores por RAM"]**
+![image.png](imagesMU/image%203.png)
 
 ---
 
@@ -95,7 +95,7 @@ El sistema se opera principalmente a través del daemon en Go, que se ejecuta en
     - `lsmod | grep so1`: Debería mostrar `continfo` y `sysinfo` cargados.
     - `crontab -l`: Debería mostrar la entry del cronjob.
 
-**[screen: Insertar captura de pantalla de los pasos de compilación de un módulo kernel con `make`]**
+![image.png](imagesMU/image%204.png)
 
 **[screen: Insertar captura de pantalla de la construcción de una imagen Docker con `docker build`]**
 
@@ -118,34 +118,13 @@ El flujo es: Kernel captura datos → Daemon analiza y actúa → Datos a SQLite
 
 ### Diagramas de flujo o estructura
 
-- **Diagrama de flujo principal (texto ASCII)**:
-    
-    ```
-    Inicio del Daemon
-    |
-    v
-    Cargar Módulos Kernel --> Leer /proc (Métricas RAM/CPU)
-    |
-    v
-    Iniciar Grafana y Cronjob (Crea contenedores cada 2 min)
-    |
-    v
-    Loop cada 20s:
-      - Lista Contenedores
-      - Analiza (Contar bajos/altos, %RAM)
-      - Decide (Eliminar >5 o ajustar a 3 bajos/2 altos)
-      - Ejecuta (stop_and_remove / create_high/low)
-      - Guarda en SQLite
-    |
-    v
-    Shutdown (Ctrl+C): Eliminar Cronjob, Descargar Kernel, Detener Grafana
-    
-    ```
-    
+- **Diagrama de flujo principal:**
 
-**[screen: Insertar diagrama visual de flujo (e.g., generado con [draw.io](http://draw.io/) o similar, mostrando flechas entre Kernel → Daemon → SQLite → Grafana)]**
+![image.png](imagesMU/image%205.png)
 
-**[screen: Insertar diagrama de arquitectura (e.g., componentes como cajas: Kernel Modules → Go Daemon → SQLite DB → Grafana Dashboard)]**
+- **Diagrama de Arquitectura**
+
+![image.png](imagesMU/image%206.png)
 
 ---
 
@@ -165,11 +144,9 @@ Grafana es el "tablero de control" donde ves las métricas en gráficos fáciles
     - Verás paneles como "Total RAM" (15.0 GB), "Uso de RAM" (gráfica de línea), "Top 5 Contenedores por RAM" (pie chart con nombres y MB), "Top 5 Contenedores por CPU" (pie chart con %CPU), "Contenedores Eliminados" (línea de tiempo), "Contenedores Activos" (número actual ~5), "RAM Usada/Libre" (valores en GB).
 5. **Interacción**: Ajusta el rango de tiempo (arriba a la derecha, e.g., "Last 1 hour") para zoom. Refresh automático cada 10s.
 
-**[screen: Insertar captura de pantalla del login de Grafana en `http://localhost:3000`]**
-
-**[screen: Insertar captura de pantalla del dashboard completo en Grafana, destacando paneles como "Top 5 Contenedores por RAM"]**
-
 ### Consejos para uso
 
 - Si Grafana no responde: Verifica `docker ps | grep grafana` (debe estar "Up"). Reinicia el daemon si es necesario.
 - Personalización: En Grafana, edita paneles para agregar filtros o alertas (e.g., alerta si RAM usada >80%).
+
+![image.png](imagesMU/image%207.png)

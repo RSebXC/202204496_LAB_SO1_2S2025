@@ -4,8 +4,6 @@ Este manual técnico proporciona una documentación exhaustiva del sistema desar
 
 El carnet utilizado es 202204496, por lo que los archivos en /proc se nombran acorde (e.g., `/proc/continfo_so1_202204496`). El sistema maneja restricciones clave como mantener 3 contenedores de bajo consumo y 2 de alto consumo, sin eliminar el contenedor de Grafana.
 
-Para ilustraciones visuales, se incluyen placeholders como **[screen]** donde se recomienda insertar capturas de pantalla (e.g., output de comandos o dashboard de Grafana).
-
 ---
 
 ## Estructura del Módulo de Kernel
@@ -25,7 +23,7 @@ La estructura del proyecto para los módulos de kernel es la siguiente:
         - `Makefile`: Archivo de compilación similar, con `obj-m += sysinfo.o`.
     - **Razones de organización**: Cada módulo en su carpeta permite compilación independiente, evitando conflictos. Los Makefiles son estándar para entornos kernel, usando `M="$(PWD)"` para construir en el directorio actual.
 
-**[screen: Insertar captura de pantalla de la estructura de directorios con comando `tree /home/rodrigo-prime/Documentos/SOPES1/Proyecto2`]**
+![image.png](MTimages/image.png)
 
 ### Funciones principales y su propósito
 
@@ -59,7 +57,7 @@ La compilación genera archivos `.ko` (kernel object) ejecutables. Se realiza en
 4. Verifica el output: `ls -l continfo.ko` (debe mostrar el archivo con tamaño no cero).
 5. Limpieza (opcional): `make clean` para eliminar archivos generados y empezar de cero.
 
-**[screen: Insertar captura de pantalla del output de `make` mostrando "Building modules, stage 2." y archivos generados]**
+![image.png](MTimages/image%201.png)
 
 ### Instrucciones paso a paso para `sysinfo`
 
@@ -80,8 +78,6 @@ La carga inserta el módulo en el kernel en ejecución, haciendo disponible el a
 
 1. Para `continfo`: `sudo insmod ~/Documentos/SOPES1/Proyecto2/kernel_continfo/continfo.ko`.
 2. Para `sysinfo`: `sudo insmod ~/Documentos/SOPES1/Proyecto2/sysinfo/sysinfo.ko`.
-
-**[screen: Insertar captura de pantalla de `sudo insmod continfo.ko` seguido de `ls /proc/continfo_so1_202204496`]**
 
 ### Comandos para descargar (`rmmod`)
 
@@ -113,7 +109,7 @@ Las pruebas validan que el módulo capture y exponga métricas correctamente, in
     - Esperado: Similar, pero con `processes` incluyendo todos los procesos del sistema y `state` (e.g., "R" para running).
 5. Prueba con carga: Crea múltiples contenedores y relee para ver cambios en %CPU/%Mem.
 
-**[screen: Insertar captura de pantalla de `cat /proc/continfo_so1_202204496 | jq .` mostrando el JSON formateado]**
+![image.png](MTimages/image%202.png)
 
 ### Comandos para validar su funcionamiento
 
@@ -173,6 +169,10 @@ En paquetes:
 - `pkg/grafana/grafana.go`: `StartGrafana` corre contenedor con `docker run`, `StopGrafana` detiene con `docker stop/rm`.
 - `pkg/kernel/kernel.go`: `LoadModules` usa `insmod`, `UnloadModules` usa `rmmod`, `ReadProcData` lee /proc y parsea JSON.
 
+![image.png](MTimages/image%203.png)
+
+![image.png](MTimages/image%204.png)
+
 ---
 
 ## Documentar el/los archivos de automatización usados
@@ -189,5 +189,3 @@ En paquetes:
     - **Lógica detallada**: Define `obj-m` para objeto, `all` para compilar con kernel sources, `clean` para limpieza.
     - **Ejecución**: `make` compila `.ko`, `make clean` limpia.
     - **Problemas**: Dependencia de headers; solucionado con instalación previa.
-
-**[screen: Insertar captura de pantalla de `bash create_containers.sh` mostrando creación de contenedores]**

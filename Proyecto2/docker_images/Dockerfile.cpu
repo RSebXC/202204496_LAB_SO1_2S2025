@@ -1,0 +1,4 @@
+FROM python:3.9-slim
+WORKDIR /app
+COPY cpu_hog.py .
+CMD ["python", "cpu_hog.py"]

@@ -1,0 +1,120 @@
+# ==========================================
+# 🔹 SISTEMA Y ARCHIVOS TEMPORALES
+# ==========================================
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.log
+*.pid
+
+# Archivos de respaldo y caché
+.cache/
+.npm/
+node_modules/
+__pycache__/
+*.pyc
+
+# ==========================================
+# 🔹 COMPRESIONES Y BACKUPS
+# ==========================================
+*.tar
+*.tar.gz
+*.gz
+*.zip
+*.rar
+*.7z
+*.bz2
+
+# ==========================================
+# 🔹 PROYECTOS EN GO
+# ==========================================
+# Binarios compilados
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Carpeta de compilación Go
+bin/
+build/
+dist/
+vendor/
+
+# Módulos locales
+go.work
+go.work.sum
+
+# ==========================================
+# 🔹 PROYECTOS EN RUST
+# ==========================================
+/target/
+Cargo.lock
+
+# ==========================================
+# 🔹 PROYECTOS EN C / C++
+# ==========================================
+*.o
+*.a
+*.out
+*.obj
+*.class
+*.dll
+*.exe
+*.so
+
+# ==========================================
+# 🔹 PYTHON (si usas scripts)
+# ==========================================
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+env/
+venv/
+.venv/
+*.egg
+*.egg-info/
+.eggs/
+*.coverage
+.coverage.*
+htmlcov/
+
+# ==========================================
+# 🔹 DOCKER Y KUBERNETES
+# ==========================================
+# Archivos de volúmenes o datos
+docker-data/
+.docker/
+*.tar
+*.img
+
+# ==========================================
+# 🔹 VISUAL STUDIO CODE
+# ==========================================
+.vscode/
+.history/
+.settings/
+*.code-workspace
+
+# ==========================================
+# 🔹 GOOGLE CLOUD / CLOUD SDK
+# ==========================================
+.gcloud/
+credentials.json
+key.json
+*.pem
+
+# ==========================

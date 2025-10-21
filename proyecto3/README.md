@@ -5,3 +5,4 @@
 ## RabbitMQ\n- Instalado con Bitnami en namespace dev\n- Credenciales: admin/admin123\n- URL: rabbitmq.dev.svc.cluster.local:5672
 ## Valkey\n- Instalado con Bitnami en namespace dev\n- Réplicas: 2\n- Credenciales: valkey123\n- URL: valkey-master.dev.svc.cluster.local:6379
 ## Grafana\n- Instalado en namespace dev\n- Credenciales: admin/admin123\n- URL: http://34.57.222.111
+## API REST en Rust\n- Proyecto creado en rust-api/\n- Endpoint: POST /tweet\n- Valida municipality y weather, envía a go-service.dev.svc.cluster.local:8080

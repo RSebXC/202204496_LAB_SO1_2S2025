@@ -118,3 +118,6 @@ key.json
 *.pem
 
 # ==========================
+
+# Archivos de compilación de Rust
+/target/

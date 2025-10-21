@@ -61,7 +61,6 @@ go.work.sum
 # 🔹 PROYECTOS EN RUST
 # ==========================================
 /target/
-Cargo.lock
 
 # ==========================================
 # 🔹 PROYECTOS EN C / C++
@@ -98,8 +97,11 @@ htmlcov/
 # Archivos de volúmenes o datos
 docker-data/
 .docker/
+kubectl
 *.tar
 *.img
+*.d 
+*bin
 
 # ==========================================
 # 🔹 VISUAL STUDIO CODE

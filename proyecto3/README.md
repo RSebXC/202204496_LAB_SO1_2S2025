@@ -4,3 +4,4 @@
 ## Kafka\n- Instalado con Strimzi en namespace dev\n- Clúster: my-kafka (1 réplica)\n- Puerto: 9092 (interno, sin TLS)
 ## RabbitMQ\n- Instalado con Bitnami en namespace dev\n- Credenciales: admin/admin123\n- URL: rabbitmq.dev.svc.cluster.local:5672
 ## Valkey\n- Instalado con Bitnami en namespace dev\n- Réplicas: 2\n- Credenciales: valkey123\n- URL: valkey-master.dev.svc.cluster.local:6379
+## Grafana\n- Instalado en namespace dev\n- Credenciales: admin/admin123\n- URL: http://34.57.222.111

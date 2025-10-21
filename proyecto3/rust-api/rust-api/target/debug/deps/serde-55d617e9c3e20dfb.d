@@ -1,0 +1,14 @@
+/home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/deps/serde-55d617e9c3e20dfb.d: /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/build/serde-f38b255d54569d39/out/private.rs
+
+/home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/deps/libserde-55d617e9c3e20dfb.rlib: /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/build/serde-f38b255d54569d39/out/private.rs
+
+/home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/deps/libserde-55d617e9c3e20dfb.rmeta: /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/build/serde-f38b255d54569d39/out/private.rs
+
+/home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/sebas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/build/serde-f38b255d54569d39/out/private.rs:
+
+# env-dep:OUT_DIR=/home/sebas/Github/202204496_LAB_SO1_2S2025/proyecto3/rust-api/rust-api/target/debug/build/serde-f38b255d54569d39/out

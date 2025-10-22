@@ -525,6 +525,6 @@ Abre `http://localhost:3000` y configura los paneles.
 
 ## 7. Espacio para Captura de Grafana
 
-![image.png](Informe%20T%C3%A9cnico%20-%20Proyecto%20SO1%202S2025%20(Carne%2020220%202945171a36c68082a921c4edc5c50192/image.png))
+![image.png](png/image.png)
 
-![image.png](Informe%20T%C3%A9cnico%20-%20Proyecto%20SO1%202S2025%20(Carne%2020220%202945171a36c68082a921c4edc5c50192/image%201.png))
+![image.png](png/image1.png)

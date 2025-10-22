@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: registry-config
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: registry-config
+  template:
+    metadata:
+      labels:
+        name: registry-config
+    spec:
+      hostPID: true
+      hostNetwork: true
+      volumes:
+      - name: containerd-config
+        hostPath:
+          path: /etc/containerd
+      containers:
+      - name: registry-config
+        image: alpine
+        volumeMounts:
+        - name: containerd-config
+          mountPath: /etc/containerd
+        command: 
+        - /bin/sh
+        - -c
+        - |
+          cp /etc/containerd/config.toml /etc/containerd/config.toml.bak
+          if ! grep -q "34.122.62.252:5000" /etc/containerd/config.toml; then
+            printf '%s\n' \
+              '[plugins."io.containerd.grpc.v1.cri".registry.mirrors."34.122.62.252:5000"]' \
+              '  endpoint = ["http://34.122.62.252:5000"]' \
+              '' \
+              '[plugins."io.containerd.grpc.v1.cri".registry.configs."34.122.62.252:5000".tls]' \
+              '  insecure_skip_verify = true' >> /etc/containerd/config.toml
+            echo "Registry config added"
+            nsenter --target 1 --mount --uts --ipc --net --pid -- systemctl restart containerd
+            echo "Containerd restarted"
+          else
+            echo "Registry config already exists"
+          fi
+          sleep infinity
+        securityContext:
+          privileged: true
+      tolerations:
+      - effect: NoSchedule
+        operator: Exists

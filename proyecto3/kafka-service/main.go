@@ -19,8 +19,20 @@ type server struct {
 }
 
 func (s *server) SendTweet(ctx context.Context, req *pb.WeatherTweetRequest) (*pb.WeatherTweetResponse, error) {
+	// CONVERTIR ENUMS A STRINGS antes de crear el JSON
+	municipalityStr := req.Municipality.String()
+	weatherStr := req.Weather.String()
+
+	// Crear un map con los strings para el JSON
+	tweet := map[string]interface{}{
+		"municipality": municipalityStr,
+		"temperature":  req.Temperature,
+		"humidity":     req.Humidity,
+		"weather":      weatherStr,
+	}
+
 	// Convertir el mensaje a JSON
-	msg, err := json.Marshal(req)
+	msg, err := json.Marshal(tweet)
 	if err != nil {
 		return nil, err
 	}

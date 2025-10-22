@@ -20,6 +20,9 @@ spec:
       min.insync.replicas: 1
     storage:
       type: ephemeral
+    template:
+      pod:
+        image: confluentinc/cp-kafka:7.6.1
   zookeeper:
     replicas: 1
     storage:

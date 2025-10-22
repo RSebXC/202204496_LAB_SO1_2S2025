@@ -1,0 +1,28 @@
+# k8s-manifests/kafka-tools.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-tools
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-tools
+  template:
+    metadata:
+      labels:
+        app: kafka-tools
+    spec:
+      containers:
+      - name: kafka-tools
+        image: confluentinc/cp-kafka:7.6.1
+        command: ["sleep"]
+        args: ["infinity"]
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"

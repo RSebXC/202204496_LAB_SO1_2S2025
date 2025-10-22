@@ -7,3 +7,4 @@
 ## Grafana\n- Instalado en namespace dev\n- Credenciales: admin/admin123\n- URL: http://34.57.222.111
 ## API REST en Rust\n- Proyecto creado en rust-api/\n- Endpoint: POST /tweet\n- Valida municipality y weather, envía a go-service.dev.svc.cluster.local:8080
 ## Despliegue de Rust API\n- Imagen rust-api:latest subida a Zot (34.122.62.252:5000)\n- Configurado imagePullSecret para GKE\n- Pod rust-api en Running
+## Consumidores y Valkey\n- Implementado consumidor Go para Kafka\n- Implementado consumidor Go para RabbitMQ\n- Configurado Valkey en GKE\n- Resuelto problema de rabbitmq-service con credenciales
